@@ -1,56 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Header = (prop) => {
-    
+const Hello = ({name, age}) => {
 
-    return (
-        <>
-        <h1>{prop.course}</h1>
-        </>
-    )
+  const bornYear = () => new Date().getFullYear() - age
+
+  return (
+    <div>
+      <p>Hello {name}, you are {age} years old</p>
+      <p>So you were probably born in {bornYear()}</p>
+    </div>
+  )
 }
 
-const Part = (prop) => (
-    <p>
-        {prop.part} {prop.exercise}
-    </p>
-)
-
-const Content = () => {
-    const part1 = "Fundamentals of React";
-    const exercise1 = 10;
-    const part2 = "Using props to pass data";
-    const exercise2 = 7;
-    const part3 = "State of a component";
-    const exercise3 = 14;
-    return (
-        <div>
-            <Part part={part1} exercise={exercise1} />
-            <Part part={part2} exercise={exercise2} />
-            <Part part={part3} exercise={exercise3} />
-        </div>
-    )
-}
-
-
-const Total = (prop) => (
-    <>
-    <p>Number of exercises {prop.exercise1 + prop.exercise2 + prop.exercise3}</p>
-    </>
-)
 
 const App = () => {
-    const course = "Half Stack application development";
-    const exercise1 = 10;
-    const exercise2 = 7;
-    const exercise3 = 14;
+    const name = "Peter"
+    const age = 10
 
     return (
         <div>
-            <Header course={course} />
-            <Content />
-            <Total exercise1={exercise1} exercise2={exercise2} exercise3={exercise3} />
+            <h1>Greetings</h1>
+            <Hello name="Maya" age={26 +10} />
+            <Hello name={name} age={age} />
         </div>
     )
 }
